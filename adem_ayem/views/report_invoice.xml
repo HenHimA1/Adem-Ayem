@@ -18,4 +18,22 @@
         </xpath>
     </template>
 
+    <template id="report_saleorder_document" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//t[@t-set='forced_vat']" position="after">
+            <t t-set="information_block">
+                <div name="salesperson_block" t-if="doc.user_id.partner_id">
+                    <div>
+                        <strong>Penjual :</strong>
+                        <span t-field="doc.user_id.partner_id.name" />
+                    </div>
+                    <div class="d-flex">
+                        <strong>Alamat :</strong>
+                        <span t-field="doc.user_id.partner_id"
+                            t-options='{"widget": "contact", "fields": "address", "no_marker": True}' />
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
 </odoo>
