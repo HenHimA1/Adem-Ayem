@@ -3,7 +3,7 @@
     <template id="report_invoice_document" inherit_id="account.report_invoice_document">
         <xpath expr="//t[@t-set='forced_vat']" position="after">
             <t t-set="information_block">
-                <div name="shipping_address_block">
+                <div name="salesperson_block" t-if="o.user_id.partner_id">
                     <div>
                         <strong>Penjual :</strong>
                         <span t-field="o.user_id.partner_id.name" />
